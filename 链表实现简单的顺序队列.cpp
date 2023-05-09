@@ -36,50 +36,28 @@ class list{
 		
 		void enqueue(int x)
 		{
-			if(!empty())
-			{
-				if(front==nullptr)
-				{
-					cout<<"123123123";
-					delete front;
-					front=new node;
-					front->next=nullptr;
-					rear=front;
-					
-					node* temp=new node(x);
-					temp->next=nullptr;
-					rear->next=temp;
-					rear=temp;
-					size++;	
-				}
-				else
-				{
-					node* temp=new node(x);
-					temp->next=nullptr;
-					rear->next=temp;
-					rear=temp;
-					size++;	
-				}
-				
-				cout<<"successfully add "<<x<<" to the queue!"<<endl;
-			}
-			else
-			{
-				front->val=x;
+				node* temp=new node(x);
+				temp->next=nullptr;
+				rear->next=temp;
+				rear=temp;
 				size++;
 				cout<<"successfully add "<<x<<" to the queue!"<<endl;
-			}
+
 		}
 		
 		void dequeue()
 		{
 			if(!empty())
 			{
-				cout<<"successfully delete "<<front->val<<" from the queue!"<<endl;
+				if(front->next==rear)
+				rear=front;
+				cout<<"successfully delete "<<front->next->val<<" from the queue!"<<endl;
 				node* temp=front->next;
-				delete front;
-				front=temp;
+				front->next=temp->next;
+				delete temp; 
 				size--;
+				
+				
 			}
 			else
 			{
@@ -89,7 +67,7 @@ class list{
 		
 		int get_front()
 		{
-			return front->val;
+			return front->next->val;
 		}
 		
 		int get_rear()
@@ -122,7 +100,7 @@ class list{
 			}
 			else
 			{
-				node* temp=front;
+				node* temp=front->next;
 				cout<<"now print the queue from \"front\" to \"rear\": ";
 				while(temp->next!=nullptr)
 				{
