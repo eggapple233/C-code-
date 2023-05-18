@@ -11,6 +11,93 @@ struct Btree{
 	Btree(string x):val(x),left(nullptr),right(nullptr){}
 };
 
+struct node{
+	Btree* val;
+	node* next;
+	
+	node(){
+		val=nullptr;
+		next=nullptr;
+	}
+	node(Btree* x){
+		val=x;
+		next=nullptr;
+	}
+};
+
+class list{
+	public:
+		list(){
+			size=0;
+			front=new node;
+			front->next=nullptr;
+			rear=front;
+		}
+		
+		~list(){
+			node* temp=front;
+			while(front!=nullptr)
+			{
+				temp=front;
+				front=front->next;
+				delete temp;
+			}
+		}
+		
+		void enqueue(Btree* root)
+		{
+				node* temp=new node(root);
+				temp->next=nullptr;
+				rear->next=temp;
+				rear=temp;
+				size++;
+				//cout<<"successfully add "<<x<<" to the queue!"<<endl;
+
+		}
+		
+		void dequeue()
+		{
+			if(!empty())
+			{
+				if(front->next==rear)
+				rear=front;
+				//cout<<"successfully delete "<<front->next->val<<" from the queue!"<<endl;
+				node* temp=front->next;
+				front->next=temp->next;
+				delete temp; 
+				size--;
+				
+			}
+			else
+			{
+				//cout<<"sorry,the queue is empty!"<<endl;
+			}
+		}
+		
+		Btree* get_front()
+		{
+			return front->next->val;
+		}
+		
+		bool empty()
+		{
+			if(size!=0)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+
+	private:
+		int size;
+		node* front;
+		node* rear;
+};
+
+
 Btree* CreateRoot()
 {
 	string x;
@@ -19,6 +106,7 @@ Btree* CreateRoot()
 	Btree* root = new Btree(x);
 	return root;
 }
+
 
 void CreateBtree(Btree*& root)
 {
@@ -81,6 +169,28 @@ void Print3(Btree* root)
 	return;
 }
 
+void Print4(Btree* root)
+{
+	list queue;
+	queue.enqueue(root);
+	while(!queue.empty())
+	{	
+		Btree* temp=queue.get_front();
+		cout<<temp->val<<" ";
+		
+		if(temp->left!=nullptr)
+		{
+			queue.enqueue(temp->left);
+		}
+		
+		if(temp->right!=nullptr)
+		{
+			queue.enqueue(temp->right);
+		}
+		
+		queue.dequeue();
+	}
+}
 
 void DeleteBtree(Btree*& root)
 {
@@ -107,7 +217,8 @@ int main()
 	cout<<"2:ÏÈÐò´òÓ¡¶þ²æÊ÷"<<endl;
 	cout<<"3:ÖÐÐò´òÓ¡¶þ²æÊ÷"<<endl;
 	cout<<"4:ºóÐò´òÓ¡¶þ²æÊ÷"<<endl;
-	cout<<"5:É¾³ý¶þ²æÊ÷"<<endl;
+	cout<<"5:²ãÐò´òÓ¡¶þ²æÊ÷"<<endl;
+	cout<<"6:É¾³ý¶þ²æÊ÷"<<endl;
 	cout<<"=============================================="<<endl;
 	while(cin>>choose)
 	{
@@ -192,6 +303,26 @@ int main()
 					
 			case 5: if(root!=nullptr)
 					{
+						if(root->val!=".")
+						{
+							Print4(root);
+							cout<<endl<<endl;
+						}
+						else
+						{
+							cout<<"(The tree is empty :o )"<<endl;
+						    cout<<endl<<endl;
+						}
+					}
+					else
+					{
+						cout<<"You haven't created a Btree, please create it before print it."<<endl;
+						cout<<endl<<endl;
+					}
+					break;
+			
+			case 6: if(root!=nullptr)
+					{
 						DeleteBtree(root);
 						cout<<"Successfully delete the Btree!"<<endl<<endl;
 					}
@@ -211,7 +342,8 @@ int main()
 		cout<<"2:ÏÈÐò´òÓ¡¶þ²æÊ÷"<<endl;
 		cout<<"3:ÖÐÐò´òÓ¡¶þ²æÊ÷"<<endl;
 		cout<<"4:ºóÐò´òÓ¡¶þ²æÊ÷"<<endl;
-		cout<<"5:É¾³ý¶þ²æÊ÷"<<endl;
+		cout<<"5:²ãÐò´òÓ¡¶þ²æÊ÷"<<endl;
+		cout<<"6:É¾³ý¶þ²æÊ÷"<<endl;
 		cout<<"=============================================="<<endl;
 	}
 	
