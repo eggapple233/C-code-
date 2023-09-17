@@ -51,7 +51,8 @@ bool check2(vector<vector<double>> arr,int x){
 					cin.sync();
 					goto start3;
 				}
-				cout<<"请输入多项式的系数和指数（示例：input>>2 3   即表示输入2*x^3）"<<endl;
+				cout<<"请输入多项式的系数和指数"<<endl;
+				cout<<"示例:\n系数：2\n指数：3\n即表示输入了2*x^3\n"; 
 				double ceo;
 				double index;
 				for(int i=0;i<n;i++)
@@ -122,8 +123,8 @@ bool check2(vector<vector<double>> arr,int x){
 					cin.sync();
 					goto start6;
 				}
-				cout<<"请输入多项式的系数和指数（示例：input>>2 3   即表示输入2*x^3）"<<endl;
-
+				cout<<"请输入多项式的系数和指数"<<endl;
+				cout<<"示例:\n系数：2\n指数：3\n即表示输入了2*x^3\n"; 
 				for(int i=0;i<n;i++)
 				{
 					start7://加法操作中，重新输入b的系数 
@@ -221,7 +222,8 @@ bool check2(vector<vector<double>> arr,int x){
 					cin.sync();
 					goto start3;
 				}
-				cout<<"请输入多项式的系数和指数（示例：input>>2 3   即表示输入2*x^3）"<<endl;
+				cout<<"请输入多项式的系数和指数"<<endl;
+				cout<<"示例:\n系数：2\n指数：3\n即表示输入了2*x^3\n"; 
 				double ceo;
 				double index;
 				for(int i=0;i<n;i++)
