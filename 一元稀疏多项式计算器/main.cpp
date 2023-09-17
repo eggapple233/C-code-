@@ -3,6 +3,7 @@
 #include "input.h"
 #include "cstdio"
 #include "ctype.h"
+#include "windows.h"
 
 
 int main()
@@ -103,6 +104,7 @@ int main()
 	
 	end://退出使用 
 	cout<<endl<<endl;
-	cout<<"*-=-=-=-=-=-=-=-=感谢使用=-=-=-=-=-=-=-=-*"<<endl; 
+	cout<<"*-=-=-=-=-=-=-=-=感谢\2使用=-=-=-=-=-=-=-=-*"<<endl; 
+	Sleep(2000);
 	return 0;
 }
