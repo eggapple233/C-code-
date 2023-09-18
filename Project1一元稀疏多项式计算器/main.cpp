@@ -3,6 +3,7 @@
 #include "input.h"
 #include "cstdio"
 #include "ctype.h"
+#include "stdexcept"
 #include "windows.h"
 
 
@@ -22,10 +23,11 @@ int main()
 	cout<<"* 4:多项式求导                               *"<<endl;
 	cout<<"* 5:多项式求值                               *"<<endl;
 	cout<<"* 6:查看错误代码                             *"<<endl;
-	cout<<"**********************************beta 1.0****"<<endl;
+	cout<<"**********************************beta 2.0****"<<endl;
 	cout<<"=============================================="<<endl;
 	
 	start2: //重新输入操作码 
+try{
 	while(cin>>choose)
 	{
 		if(!check1(choose))
@@ -44,22 +46,27 @@ int main()
 			}
 			case 1: {
 				input_1(1);
+				Sleep(2000);
 				goto start1;
 			}	
 			case 2:{
 				input_1(2);
+				Sleep(2000);
 				goto start1;
 			}
 			case 3:{
 				input_1(3);
+				Sleep(2000);
 				goto start1;
 			}
 			case 4:{
 				input_2(1);
+				Sleep(2000);
 				goto start1;
 			}
 			case 5:{
 				input_2(2);
+				Sleep(2000);
 				goto start1;
 			}
 			case 6:{
@@ -82,6 +89,7 @@ int main()
 				cout<<"=-----------------------------------------------------="<<endl;
 				cout<<"=    #8         |           输入的x为非法字符串       ="<<endl;
 				cout<<"======================================================="<<endl;
+				Sleep(2000);
 				cout<<endl<<endl;
 				cout<<">回车以继续";
 				cin.clear();
@@ -101,7 +109,17 @@ int main()
 	cin.clear();
 	cin.sync();
 	goto start2;
-	
+}
+catch (invalid_argument& ERR){
+		cout << "ERROR : Invalid_argument" << endl;
+		Sleep(2000);
+		goto start1;
+}
+catch (out_of_range& ERR){
+		cout << "ERROR : Out_of_range" << endl;
+		Sleep(2000);
+		goto start1;
+}
 	end://退出使用 
 	cout<<endl<<endl;
 	cout<<"*-=-=-=-=-=-=-=-=感谢\2使用=-=-=-=-=-=-=-=-*"<<endl; 

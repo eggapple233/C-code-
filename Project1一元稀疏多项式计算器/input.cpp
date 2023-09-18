@@ -3,6 +3,7 @@
 #include "ctype.h"
 #include "cstdio"
 #include "poly.h"
+#include "windows.h"
 bool check1(string temp){
 	int len=temp.length();
 	int n=0;
@@ -177,7 +178,7 @@ bool check2(vector<vector<double>> arr,int x){
 				sub_poly.print2();
 				cout<<"以 \"项数 {系数，指数}\" 形式表现为：";
 				sub_poly.print1();
-				
+				Sleep(2000);
 				if(id==1)
 				{
 				cout<<endl<<endl;
