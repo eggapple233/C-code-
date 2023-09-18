@@ -1,6 +1,7 @@
 #include "iostream"
 #include "input.h"
 #include "ctype.h"
+#include "cstdio"
 #include "poly.h"
 bool check1(string temp){
 	int len=temp.length();
@@ -65,6 +66,7 @@ bool check2(vector<vector<double>> arr,int x){
 						{
 							cout<<"您不必输入系数为0的项（这并非错误，只是提示）"<<endl;
 						}
+						cin.sync();
 						start5://加法操作中，重新输入a的指数 
 						cout<<endl<<"指数：";
 						cin>>temp;
@@ -85,6 +87,7 @@ bool check2(vector<vector<double>> arr,int x){
 								cin.sync();
 								goto start5;
 							}
+							cin.sync();
 							arr1.push_back({ceo,index});
 							cout<<"----------"<<endl;
 						}
@@ -131,6 +134,11 @@ bool check2(vector<vector<double>> arr,int x){
 					cout<<"系数：";
 					if(cin>>ceo)
 					{
+						if(ceo==0)
+						{
+							cout<<"您不必输入系数为0的项（这并非错误，只是提示）"<<endl;
+						}
+						cin.sync();
 						start8://加法操作中，重新输入b的指数 
 						cout<<endl<<"指数：";
 						cin>>temp;
@@ -151,6 +159,7 @@ bool check2(vector<vector<double>> arr,int x){
 								cin.sync();
 								goto start8;
 							}
+							cin.sync();
 							arr2.push_back({ceo,index});
 							cout<<"----------"<<endl;
 						}
@@ -236,6 +245,7 @@ bool check2(vector<vector<double>> arr,int x){
 						{
 							cout<<"您不必输入系数为0的项（这并非错误，只是提示）"<<endl;
 						}
+						cin.sync();
 						start5://加法操作中，重新输入a的指数 
 						cout<<endl<<"指数：";
 						cin>>temp;
@@ -256,6 +266,7 @@ bool check2(vector<vector<double>> arr,int x){
 								cin.sync();
 								goto start5;
 							}
+							cin.sync();
 							arr1.push_back({ceo,index});
 							cout<<"----------"<<endl;
 						}
