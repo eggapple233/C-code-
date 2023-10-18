@@ -1,0 +1,8 @@
+int
+string
+cout
+cin
+for
+while
+return if else 
+³öÏÖ

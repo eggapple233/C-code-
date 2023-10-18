@@ -1,0 +1,13 @@
+asm do if return try auto double inline short typedef
+bool dynamic_cast int signed typeid
+break else long static typename
+case enum mutable static union
+catch explicit namespace static_cast unsigned
+char export new struct using
+calss extern operator switch virtual
+const FALSE private template void
+const_cast float protected this votatile
+continue for public throw vchar_t
+default friend register TRUE while
+delete goto reinterpret_cast 
+alignas alignof char16_t char32_t constexpr decltype noexpect nullptr static_assert thread_local
